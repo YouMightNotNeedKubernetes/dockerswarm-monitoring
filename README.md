@@ -26,9 +26,11 @@ These are the components that will be instrumented to gather Metrics, Logs and T
 This service provide the API Endpoint for accessing Docker Engine API from Docker Swarm’s worker nodes.
 
 **Prometheus**
+
 Prometheus can be deploy on the Docker Swarm’s manager nodes directly. But if you doesn’t have access to the manager node or wish to deploy the service on the worker nodes instead to help reduce strain on the manager node, you can configure Prometheus to use the “dockerswarm_sd_server”.
 
 **Promtail**
+
 Promtail required access to Docker Engine API for querying Docker Swarm’s services but only the manager node can perform such operations. And get container logs via file in the `/var/lib/docker/containers` directory.
 
 The “dockerswarm_sd_server” provide a simple proxy to the Docker Engine API on the Docker Swarm’s manager nodes by running an agent on one (or more) on Docker Swarm’s manager and create a proxy to the Docker socket.
