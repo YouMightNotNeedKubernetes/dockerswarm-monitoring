@@ -6,7 +6,12 @@ This is the architecture overview of the whole system working together.
 
 We are using the Grafana Labs’ opinionated observability stack which includes: Loki-for logs, Grafana - for dashboards and visualization, Tempo - for traces, and Mimir - for metrics.
 
-![](image%205.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-for-scale-guide/assets/4363857/859a1172-db2a-4865-9f0c-ff596aff05c5">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-for-scale-guide/assets/4363857/41fb45ba-6a3c-4ab5-b549-37dbad9f8e44">
+  <img alt="Architecture Overview" src="https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-for-scale-guide/assets/4363857/41fb45ba-6a3c-4ab5-b549-37dbad9f8e44">
+</picture>
+
 > See [dockerswarm-monitoring-for-scale-guide: A documentation on how to get started with Docker Swarm Monitoring](https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-for-scale-guide)
 
 ## Components
