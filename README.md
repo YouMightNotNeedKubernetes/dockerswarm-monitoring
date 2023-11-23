@@ -31,9 +31,11 @@ Prometheus can be deploy on the Docker Swarm’s manager nodes directly. But if 
 
 **Promtail**
 
-Promtail required access to Docker Engine API for querying Docker Swarm’s services but only the manager node can perform such operations. And get container logs via file in the `/var/lib/docker/containers` directory.
+Promtail required access to Docker Engine API for querying Docker Swarm’s services but only the manager node can perform such operations. This due to the fact that **Promtail** is deployed as globally (daemonset in Kubernetes terms) across all nodes both manager and workers. 
 
-The “dockerswarm_sd_server” provide a simple proxy to the Docker Engine API on the Docker Swarm’s manager nodes by running an agent on one (or more) on Docker Swarm’s manager and create a proxy to the Docker socket.
+By design, **Promtail** gets container logs via file in the `/var/lib/docker/containers` directory which requires an external endpoint to provide access to the **Docker Engine API**.
+
+The `dockerswarm_sd_server ` provide a simple proxy to the Docker Engine API on the Docker Swarm’s manager nodes by running an agent on one (or more) on Docker Swarm’s manager and create a proxy to the Docker socket.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/socheatsok78/dockerswarm_sd_server/assets/4363857/babd8ddc-d2d6-45b1-8995-401ec3b7319d">
