@@ -1,3 +1,6 @@
+> [!WARNING]
+> This documentation and stacks are currently a work-in-progress.
+
 # About
 A overview of Observability, Telemetry and Monitoring platform.
 
@@ -17,7 +20,7 @@ We are using the Grafana Labs’ opinionated observability stack which includes:
 ## Components
 These are the components that will be instrumented to gather Metrics, Logs and Traces.
 
-![](image.png)
+![image](https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-guide/assets/4363857/95c63ad5-1cf9-4d12-8d2a-89185e3673c0)
 
 ## Docker Swarm Service Discovery
 This service provide the API Endpoint for accessing Docker Engine API from Docker Swarm’s worker nodes.
@@ -29,14 +32,25 @@ Prometheus can be deploy on the Docker Swarm’s manager nodes directly. But if 
 Promtail required access to Docker Engine API for querying Docker Swarm’s services but only the manager node can perform such operations. And get container logs via file in the `/var/lib/docker/containers` directory.
 
 The “dockerswarm_sd_server” provide a simple proxy to the Docker Engine API on the Docker Swarm’s manager nodes by running an agent on one (or more) on Docker Swarm’s manager and create a proxy to the Docker socket.
-![](image%203.png)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/socheatsok78/dockerswarm_sd_server/assets/4363857/babd8ddc-d2d6-45b1-8995-401ec3b7319d">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/socheatsok78/dockerswarm_sd_server/assets/4363857/a59d6061-48da-40d5-8ed0-669ba9794e9c">
+  <img alt="Overview" src="https://github.com/socheatsok78/dockerswarm_sd_server/assets/4363857/a59d6061-48da-40d5-8ed0-669ba9794e9c">
+</picture>
+
 > See [dockerswarm_sd_server: A simple server provide proxying to Docker Engine API for using with Prometheus/Promtail \("dockerswarm_sd_configs" scrape_configs\)](https://github.com/socheatsok78/dockerswarm_sd_server)
 
 
 ## Kubernetes compatible labels
 This diagram show what the labels used for adding **Kubernetes Compatible Labels**.
 
-![](image%204.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/YouMightNotNeedKubernetes/prometheus/assets/4363857/0939b290-3d74-42a3-8807-3beed504614a">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/YouMightNotNeedKubernetes/prometheus/assets/4363857/0ec926bc-457e-450b-901a-76d651d4e7bf">
+  <img alt="Kubernetes Compatible Labels" src="https://github.com/YouMightNotNeedKubernetes/prometheus/assets/4363857/0ec926bc-457e-450b-901a-76d651d4e7bf">
+</picture>
+
 > For advance relabeling check the “**Prometheus/Promtail's Kubernetes compatible labels**” documents.
 
 ### Prometheus/Promtail's Kubernetes compatible labels
@@ -73,7 +87,10 @@ There are the labels that can be use to create **Kubernetes compatible labels** 
 > See [scrape_configs: A collections of Prometheus/Promtail's scrape_configs.](https://github.com/YouMightNotNeedKubernetes/scrape_configs)
 
 ## OpenTelemetry
-![](image%202.png)
+
+![image](https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-guide/assets/4363857/40718ca1-3a09-4944-b91f-89a868dff0b7)
+
+
 The agent collector deployment pattern consists of applications — instrumented with an OpenTelemetry Instrumentation using OpenTelemetry protocol (OTLP) — or other collectors (using the OTLP exporter) that send telemetry signals to a collector instance running with the application or on the same host as the application (such as a sidecar or a daemonset).
 
 ### **OpenTelemetry and Prometheus Labels mapping**
