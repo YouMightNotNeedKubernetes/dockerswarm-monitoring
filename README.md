@@ -23,7 +23,7 @@ These are the components that will be instrumented to gather Metrics, Logs and T
 ![image](https://github.com/YouMightNotNeedKubernetes/dockerswarm-monitoring-guide/assets/4363857/95c63ad5-1cf9-4d12-8d2a-89185e3673c0)
 
 ## Docker Swarm Service Discovery
-This service provide the API Endpoint for accessing Docker Engine API from Docker Swarm’s worker nodes.
+A proxy service for accessing **Docker Engine API** via **Docket** socket.
 
 **Prometheus**
 
